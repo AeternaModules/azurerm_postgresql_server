@@ -11,6 +11,8 @@ Required:
 Optional:
     - administrator_login
     - administrator_login_password
+    - administrator_login_password_key_vault_id (alternative to administrator_login_password - read from Key Vault instead)
+    - administrator_login_password_key_vault_secret_name (alternative to administrator_login_password - read from Key Vault instead)
     - administrator_login_password_wo
     - administrator_login_password_wo_version
     - auto_grow_enabled
@@ -37,27 +39,29 @@ Optional:
 EOT
 
   type = map(object({
-    location                                = string
-    name                                    = string
-    resource_group_name                     = string
-    sku_name                                = string
-    ssl_enforcement_enabled                 = bool
-    version                                 = string
-    ssl_minimal_tls_version_enforced        = optional(string) # Default: "TLS1_2"
-    restore_point_in_time                   = optional(string)
-    public_network_access_enabled           = optional(bool) # Default: true
-    infrastructure_encryption_enabled       = optional(bool)
-    geo_redundant_backup_enabled            = optional(bool) # Default: false
-    creation_source_server_id               = optional(string)
-    auto_grow_enabled                       = optional(bool) # Default: true
-    backup_retention_days                   = optional(number)
-    storage_mb                              = optional(number)
-    administrator_login_password_wo_version = optional(number)
-    administrator_login_password_wo         = optional(string)
-    administrator_login_password            = optional(string)
-    administrator_login                     = optional(string)
-    create_mode                             = optional(string) # Default: "Default"
-    tags                                    = optional(map(string))
+    location                                           = string
+    name                                               = string
+    resource_group_name                                = string
+    sku_name                                           = string
+    ssl_enforcement_enabled                            = bool
+    version                                            = string
+    ssl_minimal_tls_version_enforced                   = optional(string) # Default: "TLS1_2"
+    restore_point_in_time                              = optional(string)
+    public_network_access_enabled                      = optional(bool) # Default: true
+    infrastructure_encryption_enabled                  = optional(bool)
+    geo_redundant_backup_enabled                       = optional(bool) # Default: false
+    creation_source_server_id                          = optional(string)
+    auto_grow_enabled                                  = optional(bool) # Default: true
+    backup_retention_days                              = optional(number)
+    storage_mb                                         = optional(number)
+    administrator_login_password_wo_version            = optional(number)
+    administrator_login_password_wo                    = optional(string)
+    administrator_login_password                       = optional(string)
+    administrator_login_password_key_vault_id          = optional(string)
+    administrator_login_password_key_vault_secret_name = optional(string)
+    administrator_login                                = optional(string)
+    create_mode                                        = optional(string) # Default: "Default"
+    tags                                               = optional(map(string))
     identity = optional(object({
       type = string
     }))
