@@ -1,3 +1,7 @@
+output "postgresql_servers_id" {
+  description = "Map of id values across all postgresql_servers, keyed the same as var.postgresql_servers"
+  value       = { for k, v in azurerm_postgresql_server.postgresql_servers : k => v.id }
+}
 output "postgresql_servers_administrator_login" {
   description = "Map of administrator_login values across all postgresql_servers, keyed the same as var.postgresql_servers"
   value       = { for k, v in azurerm_postgresql_server.postgresql_servers : k => v.administrator_login }
