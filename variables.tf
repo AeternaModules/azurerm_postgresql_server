@@ -45,13 +45,13 @@ EOT
     sku_name                                           = string
     ssl_enforcement_enabled                            = bool
     version                                            = string
-    ssl_minimal_tls_version_enforced                   = optional(string) # Default: "TLS1_2"
+    ssl_minimal_tls_version_enforced                   = optional(string)
     restore_point_in_time                              = optional(string)
-    public_network_access_enabled                      = optional(bool) # Default: true
+    public_network_access_enabled                      = optional(bool)
     infrastructure_encryption_enabled                  = optional(bool)
-    geo_redundant_backup_enabled                       = optional(bool) # Default: false
+    geo_redundant_backup_enabled                       = optional(bool)
     creation_source_server_id                          = optional(string)
-    auto_grow_enabled                                  = optional(bool) # Default: true
+    auto_grow_enabled                                  = optional(bool)
     backup_retention_days                              = optional(number)
     storage_mb                                         = optional(number)
     administrator_login_password_wo_version            = optional(number)
@@ -60,7 +60,7 @@ EOT
     administrator_login_password_key_vault_id          = optional(string)
     administrator_login_password_key_vault_secret_name = optional(string)
     administrator_login                                = optional(string)
-    create_mode                                        = optional(string) # Default: "Default"
+    create_mode                                        = optional(string)
     tags                                               = optional(map(string))
     identity = optional(object({
       type = string
