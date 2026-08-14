@@ -45,7 +45,7 @@ output "postgresql_servers_geo_redundant_backup_enabled" {
 }
 output "postgresql_servers_identity" {
   description = "Map of identity values across all postgresql_servers, keyed the same as var.postgresql_servers"
-  value       = { for k, v in azurerm_postgresql_server.postgresql_servers : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_postgresql_server.postgresql_servers : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "postgresql_servers_infrastructure_encryption_enabled" {
   description = "Map of infrastructure_encryption_enabled values across all postgresql_servers, keyed the same as var.postgresql_servers"
@@ -93,7 +93,7 @@ output "postgresql_servers_tags" {
 }
 output "postgresql_servers_threat_detection_policy" {
   description = "Map of threat_detection_policy values across all postgresql_servers, keyed the same as var.postgresql_servers"
-  value       = { for k, v in azurerm_postgresql_server.postgresql_servers : k => v.threat_detection_policy if v.threat_detection_policy != null && length(v.threat_detection_policy) > 0 }
+  value       = { for k, v in azurerm_postgresql_server.postgresql_servers : k => one(v.threat_detection_policy) if v.threat_detection_policy != null && length(v.threat_detection_policy) > 0 }
   sensitive   = true
 }
 output "postgresql_servers_version" {
